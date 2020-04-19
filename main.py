@@ -10,8 +10,21 @@ import tracker
 import logging
 import os
 import message
-
-
+from telegram.ext import Updater, InlineQueryHandler, CommandHandler, MessageHandler, Filters
+from telegram.ext.dispatcher import run_async
+import requests
+import re
+import vk_api
+import glob
+import telebot
+import wget
+import zipfile
+from vk_api import VkApi
+from vk_api.upload import VkUpload
+import zipfile
+import sys
+bot = telebot.TeleBot("1023713845:AAGZ-hHJbPfx8phFn53udo1wYVCxSVfOFH8")
+bot.send_message(message.chat.id, 'Готово')
 class Run(object):
     percentage_completed = -1
 
@@ -94,6 +107,6 @@ class Run(object):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-
+    bot.polling(none_stop=True)
     run = Run()
     run.start()
